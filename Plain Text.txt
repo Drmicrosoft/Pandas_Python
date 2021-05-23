@@ -223,5 +223,35 @@ df.sort_index()
 df['last'].sort_values()
 
 
+===========================
+
+# to get a number of largest values in a series 
+
+df['salary'].nlargest(100)
+
+# to get a number if largest values in a dataframe from pov of a
+specific series
+
+df.nlargest(100,'salary')
+
+there is also nsmallest
 
 
+# to get the midian value of a series 
+
+df['salary'].midian()
+
+# to get all series midian 
+
+df.midian()
+
+# to get overview over all the series in details 
+df.descripe()
+
+#to get the number of the lines that not NaN
+
+df['omar'].count()
+
+# to get how many different values and how many they appeared 
+
+df['omar'].values_count()
