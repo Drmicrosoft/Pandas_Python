@@ -315,10 +315,34 @@ country_grp['salary'].agg(['midian','mean']).loc['germany']
 # code we select the row of india after all the process we have made
 # on the coloum 
 
-
 +++++
 
 
+# to can count the number of people in specific country that 
+working with specific programming language 
+
+
+filt = df['country'] == 'United States'
+df.loc[filt]['prog_lang'].str.contains('python').sum() 
+
+# for using groupby we can not implement the str function on the 
+# group object then we need to use apply()
+
+>> this is right 
+country_grp['prog_lang'].apply(lambda x : x.str.contains('python').sum())
+>> this is wrong 
+country_grp['prog_lang'].str.contains('python').sum()
+
+========================================
+
+
+# if we need to have the percentage of python users in a specific country 
+y = country_grp['prog_lang'].apply(lambda x : x.str.contains('python').sum())
+z = df.['country'].value_counts()
 
 
 
+>> concat is to combine multipe series together 
+q = pd.concat([y,z] , axis = 'columns' , sort = False )
+
+q['calcute'] = 
