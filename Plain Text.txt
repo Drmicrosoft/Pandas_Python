@@ -255,3 +255,70 @@ df['omar'].count()
 # to get how many different values and how many they appeared 
 
 df['omar'].values_count()
+
+# to get it in percentage 
+
+df['omar'].values_count(normalize=True)
+
+#========================================================
+#========================================================
+#========================================================
+#========================================================
+#========================================================
+
+# Group # Important #
+
+OK ... 
+
+# to catergorize and split the whole df based on values in a series 
+
+country_grp = df.groupby(['country'])
+
+>> this is the object of dataframegroupobject
+
+country_grp.get_group('United States')
+
+>> will out all the df that only have value at the country equal to
+>> united states
+>> and this is equal to the filter what we have done
+
+filt = df['country'] == 'United States'
+df.loc[filt]
+
+if we want to count things in another column based on the filter
+
+filt = df['country'] == 'United States'
+df.loc[filt]['social_media'].value_counts() 
+
+
+another way >> # Important
+
+country_grp['social_media'].value_counts()
+>> this will give us for all values in country and the number of 
+>> users in social media for each country 
+ 
+>> to select specific country 
+country_grp['social_media'].value_counts().loc['india']
+
+country_grp['salary'].midian().loc['germany']
+
+>> if i want to make some operations pf tje column like midian 
+
+country_grp['salary'].agg(['midian','mean']).loc['germany']
+
+#important 
+#important 
+#important 
+
+# groupby take the values in the columns we groupby it and make them
+# as the rows for all other columns . and that is why in the last 
+# code we select the row of india after all the process we have made
+# on the coloum 
+
+
++++++
+
+
+
+
+
