@@ -195,8 +195,130 @@ df.drop(index=4)
 ###### IMPORTANT
 
 # to remove with INDEX from FIlter 
+
 filt = df['last'] == 'omar'
 df.drop(index = df[filt].index)
+
+
+#=================================
+
+# to sort daraframe with values in a column 
+
+df.sort_values(by='last', ascending = False )
+
+
+# to make multiple sorting as second one will sort 
+# the duplicate elements in the first sorting 
+
+df.sort_values(by = ['last','first'] )
+
+
+# to make multiple sorting with different ascending and descending 
+
+df.sort_values ( by = ['last','first'] , ascending = [False, True] , inplace = True )
+df.sort_index()
+
+# to sort a series of the dataframe alone 
+
+df['last'].sort_values()
+
+
+===========================
+
+# to get a number of largest values in a series 
+
+df['salary'].nlargest(100)
+
+# to get a number if largest values in a dataframe from pov of a
+specific series
+
+df.nlargest(100,'salary')
+
+there is also nsmallest
+
+
+# to get the midian value of a series 
+
+df['salary'].midian()
+
+# to get all series midian 
+
+df.midian()
+
+# to get overview over all the series in details 
+df.descripe()
+
+#to get the number of the lines that not NaN
+
+df['omar'].count()
+
+# to get how many different values and how many they appeared 
+
+df['omar'].values_count()
+
+# to get it in percentage 
+
+df['omar'].values_count(normalize=True)
+
+#========================================================
+#========================================================
+#========================================================
+#========================================================
+#========================================================
+
+# Group # Important #
+
+OK ... 
+
+# to catergorize and split the whole df based on values in a series 
+
+country_grp = df.groupby(['country'])
+
+>> this is the object of dataframegroupobject
+
+country_grp.get_group('United States')
+
+>> will out all the df that only have value at the country equal to
+>> united states
+>> and this is equal to the filter what we have done
+
+filt = df['country'] == 'United States'
+df.loc[filt]
+
+if we want to count things in another column based on the filter
+
+filt = df['country'] == 'United States'
+df.loc[filt]['social_media'].value_counts() 
+
+
+another way >> # Important
+
+country_grp['social_media'].value_counts()
+>> this will give us for all values in country and the number of 
+>> users in social media for each country 
  
+>> to select specific country 
+country_grp['social_media'].value_counts().loc['india']
+
+country_grp['salary'].midian().loc['germany']
+
+>> if i want to make some operations pf tje column like midian 
+
+country_grp['salary'].agg(['midian','mean']).loc['germany']
+
+#important 
+#important 
+#important 
+
+# groupby take the values in the columns we groupby it and make them
+# as the rows for all other columns . and that is why in the last 
+# code we select the row of india after all the process we have made
+# on the coloum 
+
+
++++++
+
+
+
 
 
