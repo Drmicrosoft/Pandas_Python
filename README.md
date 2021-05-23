@@ -1,5 +1,3 @@
-# Pandas_Python
-
 # series is  a column
 # data frames is multiple columns "Series" with name for each row 
 
@@ -157,7 +155,7 @@ df.apply(lambda x : x.min())
 df.applymap(len)
 df.applymap(str.lower)
 
-for changing values of column :
+# for changing values of column :
 df['emails'].map ({'omar' : 'soso' , 'soso' : 'omar'}) 
 will remove all other values and convert them to NaN
 
@@ -167,6 +165,25 @@ df['emails'].replace ({'omar' : 'soso' , 'soso' : 'omar'})
 
 
 
+=================================================
+>> this is for Columns 
+
+# to add 2 series togethers  
+
+df['full_name'] = df['first'] + ' ' + df['last'] 
+omar okasha
+
+# to remove columns 
+
+df.drop(columns=['first','last'], inplace=True)
+
+
+# to split column to multiple columns 
+df[['first','last']] = df['full_names'].str.split(' ', expand=True)
+
+===============================================
+# to add rows 
+df.append({'column.name' : 'omar'},ignore_index = True)
 
 
 
