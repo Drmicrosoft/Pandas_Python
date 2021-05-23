@@ -198,7 +198,30 @@ df.drop(index=4)
 
 filt = df['last'] == 'omar'
 df.drop(index = df[filt].index)
- 
+
+
+#=================================
+
+# to sort daraframe with values in a column 
+
+df.sort_values(by='last', ascending = False )
+
+
+# to make multiple sorting as second one will sort 
+# the duplicate elements in the first sorting 
+
+df.sort_values(by = ['last','first'] )
+
+
+# to make multiple sorting with different ascending and descending 
+
+df.sort_values ( by = ['last','first'] , ascending = [False, True] , inplace = True )
+df.sort_index()
+
+# to sort a series of the dataframe alone 
+
+df['last'].sort_values()
+
 
 
 
