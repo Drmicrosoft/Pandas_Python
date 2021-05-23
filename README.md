@@ -49,7 +49,7 @@ df.sort_index(asending = False )
 
 
 
-================================================
+# ================================================
 
 # to filter output values of a column 
 df.email == 'omar'
@@ -110,11 +110,11 @@ df.columns = ['value_1' , 'value_2' , 'value_3']
 
 
 
->>>>>>>>
+# >>>>>>>>
 
 In next Operations when we apply function to a Series will apply 
 this function to all Values 
-..........
+# ..........
 
 # to do operations from standard python ON A SERIES
 
@@ -130,7 +130,7 @@ df['email'].apply(update_email)
 # Lambda function ON A SERIES
 df['emails'] = df['emails'].apply(lambda x : x.lower())
 
->>>>>>>>>>
+# >>>>>>>>>>
 
 When you do operations on Dataframe level the operation
 will be implemennted on the series
@@ -165,7 +165,7 @@ df['emails'].replace ({'omar' : 'soso' , 'soso' : 'omar'})
 
 
 
-=================================================
+# =================================================
 >> this is for Columns 
 
 # to add 2 series togethers  
@@ -181,7 +181,7 @@ df.drop(columns=['first','last'], inplace=True)
 # to split column to multiple columns 
 df[['first','last']] = df['full_names'].str.split(' ', expand=True)
 
-===============================================
+# ===============================================
 # to add rows 
 df.append({'column.name' : 'omar'},ignore_index = True)
 
