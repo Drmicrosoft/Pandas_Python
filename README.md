@@ -184,6 +184,19 @@ df[['first','last']] = df['full_names'].str.split(' ', expand=True)
 # ===============================================
 # to add rows 
 df.append({'column.name' : 'omar'},ignore_index = True)
+df.append(df2,ignore_index = True)
 
+
+
+# to drop rows 
+
+df.drop(index=4)
+
+###### IMPORTANT
+
+# to remove with INDEX from FIlter 
+filt = df['last'] == 'omar'
+df.drop(index = df[filt].index)
+ 
 
 
